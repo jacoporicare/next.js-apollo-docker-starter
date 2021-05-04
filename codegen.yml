@@ -1,0 +1,19 @@
+schema: './schema.json'
+overwrite: true
+documents: './src/**/*.graphql.ts'
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - add:
+          content: '/* eslint-disable */'
+    config:
+      withComponent: false
+      withHOC: false
+      withHooks: true
+      avoidOptionals: true
+  schema.json:
+    plugins:
+      - introspection

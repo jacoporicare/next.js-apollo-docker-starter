@@ -1,0 +1,61 @@
+{
+  "name": "example-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "dev:inspect": "NODE_OPTIONS='--inspect' next",
+    "build": "next build",
+    "start": "next start -p 80",
+    "prettier": "prettier --write './src/**/*.{ts,tsx}'",
+    "prettier:diff": "prettier --list-different './src/**/*.{ts,tsx}'",
+    "lint": "eslint '**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix '**/*.{ts,tsx}'",
+    "schema": "npx apollo client:download-schema --endpoint=https://develop.zradelnik.eu/api/graphql schema.json",
+    "generate": "graphql-codegen"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.16",
+    "graphql": "^15.5.0",
+    "graphql-tools": "^7.0.4",
+    "next": "^10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/add": "^2.0.2",
+    "@graphql-codegen/cli": "^1.21.3",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.3",
+    "@types/node": "^14.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
