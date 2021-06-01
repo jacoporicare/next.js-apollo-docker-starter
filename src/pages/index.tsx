@@ -22,7 +22,7 @@ function RecipeListPage() {
       <h1>Recipes</h1>
       <ul>
         {data?.recipes.map((recipe) => (
-          <li key={recipe._id}>
+          <li key={recipe.id}>
             <Link href={`/recipe/${recipe.slug}`}>{recipe.title}</Link>
           </li>
         ))}

@@ -13,7 +13,6 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** Date custom scalar type */
   Date: any;
   Upload: any;
 };
@@ -36,11 +35,11 @@ export type Image = {
 
 export type Ingredient = {
   __typename?: 'Ingredient';
-  _id: Scalars['ID'];
+  id: Scalars['ID'];
   amount: Maybe<Scalars['Float']>;
   amountUnit: Maybe<Scalars['String']>;
   name: Scalars['String'];
-  isGroup: Maybe<Scalars['Boolean']>;
+  isGroup: Scalars['Boolean'];
 };
 
 export type IngredientInput = {
@@ -57,11 +56,6 @@ export type Mutation = {
   updateRecipe: Recipe;
   deleteRecipe: Scalars['Boolean'];
   updateUserLastActivity: Scalars['Boolean'];
-  createUser: User;
-  updateUser: User;
-  deleteUser: Scalars['ID'];
-  resetPassword: Scalars['String'];
-  changePassword: Scalars['Boolean'];
 };
 
 
@@ -88,33 +82,6 @@ export type MutationDeleteRecipeArgs = {
   id: Scalars['ID'];
 };
 
-
-export type MutationCreateUserArgs = {
-  user: UserInput;
-};
-
-
-export type MutationUpdateUserArgs = {
-  id: Scalars['ID'];
-  user: UserInput;
-};
-
-
-export type MutationDeleteUserArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationResetPasswordArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationChangePasswordArgs = {
-  password: Scalars['String'];
-  newPassword: Scalars['String'];
-};
-
 export type Query = {
   __typename?: 'Query';
   recipes: Array<Recipe>;
@@ -123,7 +90,7 @@ export type Query = {
   sideDishes: Array<Scalars['String']>;
   tags: Array<Scalars['String']>;
   me: User;
-  users: Maybe<Array<User>>;
+  users: Array<User>;
 };
 
 
@@ -140,7 +107,7 @@ export type QueryRecipeArgs = {
 
 export type Recipe = {
   __typename?: 'Recipe';
-  _id: Scalars['ID'];
+  id: Scalars['ID'];
   title: Scalars['String'];
   slug: Scalars['String'];
   directions: Maybe<Scalars['String']>;
@@ -163,24 +130,17 @@ export type RecipeInput = {
   preparationTime: Maybe<Scalars['Int']>;
   servingCount: Maybe<Scalars['Int']>;
   ingredients: Maybe<Array<IngredientInput>>;
-  image: Maybe<Scalars['Upload']>;
   tags: Maybe<Array<Scalars['String']>>;
 };
 
 
 export type User = {
   __typename?: 'User';
-  _id: Scalars['ID'];
+  id: Scalars['ID'];
   username: Scalars['String'];
   displayName: Scalars['String'];
-  isAdmin: Maybe<Scalars['Boolean']>;
+  isAdmin: Scalars['Boolean'];
   lastActivity: Maybe<Scalars['Date']>;
-};
-
-export type UserInput = {
-  username: Scalars['String'];
-  displayName: Scalars['String'];
-  isAdmin: Maybe<Scalars['Boolean']>;
 };
 
 export type RecipeDetailQueryVariables = Exact<{
@@ -204,7 +164,7 @@ export type RecipeDetailFragment = (
 
 export type RecipeFragment = (
   { __typename?: 'Recipe' }
-  & Pick<Recipe, '_id' | 'slug' | 'title'>
+  & Pick<Recipe, 'id' | 'slug' | 'title'>
 );
 
 export type RecipeListQueryVariables = Exact<{ [key: string]: never; }>;
@@ -220,7 +180,7 @@ export type RecipeListQuery = (
 
 export const RecipeFragmentDoc = gql`
     fragment recipe on Recipe {
-  _id
+  id
   slug
   title
 }

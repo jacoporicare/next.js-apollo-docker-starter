@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export default gql`
   fragment recipe on Recipe {
-    _id
+    id
     slug
     title
   }

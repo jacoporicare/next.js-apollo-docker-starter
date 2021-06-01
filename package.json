@@ -11,7 +11,7 @@
     "prettier:diff": "prettier --list-different './src/**/*.{ts,tsx}'",
     "lint": "eslint '**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix '**/*.{ts,tsx}'",
-    "schema": "npx apollo client:download-schema --endpoint=https://develop.zradelnik.eu/api/graphql schema.json",
+    "schema": "npx apollo client:download-schema --endpoint=https://develop.api.zradelnik.eu/graphql schema.json",
     "generate": "graphql-codegen"
   },
   "dependencies": {
